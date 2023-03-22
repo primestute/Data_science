@@ -2,12 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-@st.cache
-def dataframe(path):
-    data = pd.read_csv(path)
-    return data
-
-avocado = dataframe('avocado.csv')
+avocado = pd.read_csv('avocado.csv')
 avocado_stats = avocado.groupby('type')['average_price'].mean()
 st.dataframe(avocado_stats)
 
