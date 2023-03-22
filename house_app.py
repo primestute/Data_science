@@ -3,9 +3,11 @@ import plotly.express as px
 import streamlit as st
 import numpy as np
 
+@st.cache
+
 def dataframe(path):
     data = pd.read_csv(path)
-    data = data[(data["bedrooms"] <= 6) & (house["bedrooms"] > 0)]
+    data = data[(data["bedrooms"] <= 6) & (data["bedrooms"] > 0)]
     data = data.drop(columns="zipcode", axis =1)
     return data
 
