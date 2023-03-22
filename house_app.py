@@ -3,10 +3,7 @@ import plotly.express as px
 import streamlit as st
 import numpy as np
 
-@st.cache
 def dataframe(path):
-    pd.set_option("display.max_columns", None)
-    pd.set_option("display.float_format", "{:.2f}".format)
     data = pd.read_csv(path)
     data = data[(data["bedrooms"] <= 6) & (house["bedrooms"] > 0)]
     data = data.drop(columns="zipcode", axis =1)
