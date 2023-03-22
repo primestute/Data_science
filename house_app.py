@@ -14,6 +14,10 @@ def dataframe(path):
 house = dataframe('house_data.csv')
 st.dataframe(house)
 
+bedroom = house.bedrooms.value_counts(normalize = True)
+st.bar_chart(bedroom)
+
+
 # Create the plotly express figure
 fig = px.scatter_mapbox(
     house,
