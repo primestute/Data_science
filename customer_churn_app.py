@@ -5,7 +5,6 @@ import numpy as np
 import pickle
 import base64
 
-
 st.write("""
 
 # Churn Prediction App
@@ -49,12 +48,15 @@ def select_features():
 
 select_df = select_features()
 
-st.header("### How does PaymentMethod and Contract type affect churn?")
-result = pd.pivot_table(data=churn, index='PaymentMethod', columns='Contract',values='Churn')
-fig = px.imshow(result, text_auto = True)
+st.title("Monthly Charges vs. Total Charges")
+fig = px.scatter(
+    data_frame = churn,
+    x = "MonthlyCharges",
+    y = "TotalCharges"
+)
+fig.update_layout(xaxis_title = "Monthly Charges", yaxis_title="Total Charges")
 st.plotly_chart(fig)
 
 st.markdown("""
-- It can be seen that those customers with a month-month contract paying by electronic check has high posiibility to churn.
-- Customers with a two-year contract have a very low probability throughout.
+- It appears that a positive correlation exists between "monthly charges and total charges"
 """)
