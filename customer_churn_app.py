@@ -40,7 +40,7 @@ def select_features():
     tenure = st.sidebar.slider('tenure', 0.0,72.0, 0.0)
     
     df = {'gender':[gender], 
-          'PaymentMethod':[method],
+          'PaymentMethod':[payment_method],
          "MonthlyCharges":[monthly_charges],
           "tenure":[tenure],
          }
