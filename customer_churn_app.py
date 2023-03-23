@@ -55,9 +55,7 @@ fig = px.imshow(result, text_auto = True,
 fig.update_layout(
     title ="How does PaymentMethod and Contract type affect churn?",
 )
-st.write(fig)
-
-heatmap()
+st.plotly_chart(fig)
 
 st.markdown("""
 - It can be seen that those customers with a month-month contract paying by electronic check has high posiibility to churn.
