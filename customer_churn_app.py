@@ -1,6 +1,4 @@
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 import plotly.express as px
 import streamlit as st
 import numpy as np
@@ -51,12 +49,13 @@ def select_features():
 
 select_df = select_features()
 
-def heatmap():  
-    result = pd.pivot_table(data=churn, index='PaymentMethod', columns='Contract',values='Churn')
-    fig = sns.heatmap(result, fmt=".2f")
-    plt.title("How does PaymentMethod and Contract type affect churn?",
-                 fontfamily="serif", fontweight='bold')
-    st.write(fig)
+result = pd.pivot_table(data=churn, index='PaymentMethod', columns='Contract',values='Churn')
+fig = px.imshow(result, text_auto = True,
+               color_continuous_scale = 'RdYlBu')
+fig.update_layout(
+    title ="How does PaymentMethod and Contract type affect churn?",
+)
+st.write(fig)
 
 heatmap()
 
