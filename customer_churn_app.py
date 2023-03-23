@@ -49,12 +49,9 @@ def select_features():
 
 select_df = select_features()
 
+st.header("### How does PaymentMethod and Contract type affect churn?")
 result = pd.pivot_table(data=churn, index='PaymentMethod', columns='Contract',values='Churn')
-fig = px.imshow(result, text_auto = True,
-               color_continuous_scale = 'RdYlBu')
-fig.update_layout(
-    title ="How does PaymentMethod and Contract type affect churn?",
-)
+fig = px.imshow(result, text_auto = True)
 st.plotly_chart(fig)
 
 st.markdown("""
