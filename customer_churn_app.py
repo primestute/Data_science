@@ -19,7 +19,7 @@ st.markdown("""
 Data source: [Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn?select=WA_Fn-UseC_-Telco-Customer-Churn.csv)
 """)
 
-st.header("Customer Churn Prediction")
+st.header("Customer Churn Data")
 
 @st.cache
 
@@ -49,5 +49,11 @@ def select_features():
 
 select_df = select_features()
 
+def heatmap():  
+    result = pd.pivot_table(data=churn, index='PaymentMethod', columns='Contract',values='Churn')
+    fig = sns.heatmap(result, fmt=".2f")
+    plt.title("How does PaymentMethod and Contract type affect churn?",
+                 fontfamily="serif", fontweight='bold')
+    st.write(fig)
 
-            
+heatmap()           
