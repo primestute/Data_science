@@ -56,4 +56,9 @@ def heatmap():
                  fontfamily="serif", fontweight='bold')
     st.write(fig)
 
-heatmap()           
+heatmap()
+
+st.markdown("""
+- It can be seen that those customers with a month-month contract paying by electronic check has high posiibility to churn.
+- Customers with a two-year contract have a very low probability throughout.
+""")
