@@ -15,6 +15,7 @@ house = dataframe('house_data.csv')
 st.dataframe(house)
 
 bedroom = house.bedrooms.value_counts(normalize = True)
+st.title("Proportion of bedroom type")
 st.bar_chart(bedroom)
 
 
