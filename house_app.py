@@ -17,6 +17,7 @@ st.dataframe(house)
 bedroom = house.bedrooms.value_counts(normalize = True)
 st.title("Proportion of bedroom type")
 st.bar_chart(bedroom)
+st.markdown("- 3 bedrooms is the most common bedroom type.")
 
 
 # Create the plotly express figure
