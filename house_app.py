@@ -25,16 +25,14 @@ fig = px.scatter_mapbox(
     house,
     lat="lat",
     lon="long",
-    color="bedrooms",
+    color="price",
     color_discrete_sequence=["blue", "red"],
     zoom=11,
-    height=500,
-    width=800,
-    hover_name="price",
-    hover_data=["floors", "bedrooms"],
-    labels={"color": "bedrooms"},
+    height=600,
+    width=600,
+    hover_data=["price"],
 )
-fig.update_layout(mapbox_style="stamen-terrain")
+fig.update_layout(mapbox_style="open-street-map")
 
 # Show the figure
 st.plotly_chart(fig, use_container_width=True)
