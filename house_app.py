@@ -9,6 +9,7 @@ def dataframe(path):
     data = pd.read_csv(path)
     data = data[(data["bedrooms"] <= 6) & (data["bedrooms"] > 0)]
     data = data.drop(columns="zipcode", axis =1)
+    data = data[data["price"] <= 400_000]
     return data
 
 house = dataframe('house_data.csv')
